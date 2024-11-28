@@ -1,4 +1,5 @@
 export async function loginUser(creds) {
+  console.log(creds);
   const res = await fetch("http://localhost:4040/api/players/signup", {
     method: "POST",
     headers: {
