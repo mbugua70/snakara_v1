@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import headerImage from "../../public/image/about.png"
+import headerImage from "../../public/image/about.png";
 
 /* eslint-disable react/prop-types */
 const Scoreboard = ({ userAnswers, QUESTIONS, generalTimer }) => {
   const [remainingTime, setRemainingTime] = useState(generalTimer);
+  const [applyClass, setApplyClass] = useState(false);
+
   const answeredCorrectly = userAnswers.filter(
     (answer, index) =>
       answer === QUESTIONS[index].answers[0] ||
@@ -30,6 +32,15 @@ const Scoreboard = ({ userAnswers, QUESTIONS, generalTimer }) => {
     };
   }, [generalTimer]);
 
+  useEffect(() => {
+
+    const interval = setInterval(() => {
+      setApplyClass((prev) => !prev);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   let countDown = remainingTime / 1000;
 
   return (
@@ -44,8 +55,13 @@ const Scoreboard = ({ userAnswers, QUESTIONS, generalTimer }) => {
           <p>{remainingTime > 0 ? countDown | 0 : "0"}</p>
         </div>
       </div> */}
-      <div className="image_containers">
-        <img src={headerImage} alt="" style={{width: "100%", height: "100%"}}/>
+      <div className={`image_containers`}>
+        <img
+          src={headerImage}
+          alt=''
+          style={{ width: "100%", height: "100%" }}
+          className={`animate__animated ${applyClass ? 'animate__swing' : ''}`}
+        />
       </div>
     </>
   );

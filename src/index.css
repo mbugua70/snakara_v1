@@ -589,11 +589,12 @@ div:where(.swal2-icon).swal2-error {
 
 .header_question{
   width: 100%;
-  background-color: var(--tertiary-color);
   height: 24rem;
   padding-block: 1rem;
   top: 0px;
   margin-bottom: 0px;
+  display: flex;
+  justify-content: end;
 }
 
 .scoreboard{
@@ -602,6 +603,12 @@ div:where(.swal2-icon).swal2-error {
   flex-direction: row;
   padding: 0 2rem;
   justify-content: space-around;
+}
+
+.image_containers{
+  margin: 60px;
+  width: 200px;
+  height: 200px;
 }
 
 .scoreboard p{
