@@ -16,8 +16,11 @@ const Answers = ({ onSelect, answer, selectedAnswer, answerState, COLORS }) => {
     shuffleQuestions.current.sort(() => Math.random() - 0.5);
   }
 
+  let namingLetter;
+  let answerLetter = ["A", "B", "C", "D"];
+
   return (
-    <ul id="answers">
+    <ul id='answers'>
       {shuffleQuestions.current.map((answer, index) => {
         const isAnswered = selectedAnswer === answer;
         let cssClass = "";
@@ -101,24 +104,37 @@ const Answers = ({ onSelect, answer, selectedAnswer, answerState, COLORS }) => {
 
         const colorsItems = COLORS.map((items) => items.colors_answers);
         const colorsItem = colorsItems[0][index];
+        namingLetter = answerLetter[index];
         return (
-          <li className="answer" key={answer}>
+          <li className='answer' key={answer}>
             <button
               onClick={() => onSelect(answer)}
               className={`${cssClass} animate__animated animate__zoomIn`}
               style={{ backgroundColor: colorsItem }}
-              disabled={answerState !== ""}
-            >
+              disabled={answerState !== ""}>
+              <p
+                className={`${namingLetter} name_letter`}
+                style={
+                  isAnswered && isClicked && isCorrect
+                    ? { backgroundColor: "#5a4637", color: "#f9f2e5" }
+                    : { backgroundColor: "#f9f2e5", color: "#5a4637" }
+                }>
+                {namingLetter}
+              </p>
               {isAnswered &&
                 isClicked &&
                 (isCorrect ? (
                   <img
                     src={correctPic}
-                    alt="correct"
-                    className="correctPic show"
+                    alt='correct'
+                    className='correctPic show animate__heartBeat'
                   />
                 ) : (
-                  <img src={wrongPic} alt="wrong" className="wrongPic show" />
+                  <img
+                    src={wrongPic}
+                    alt='wrong'
+                    className='wrongPic show animate__wobble'
+                  />
                 ))}
               {answer}
             </button>

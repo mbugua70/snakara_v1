@@ -3,7 +3,6 @@ import { useState } from "react";
 import QuestionTimer from "./Quiztimer";
 import Answers from "./answers";
 
-
 const Question = ({
   onSelect,
   onSkipAnswer,
@@ -18,6 +17,7 @@ const Question = ({
   });
 
   let timer = 13000;
+
 
   if (answer.selectedAnswer) {
     timer = 1000;
@@ -36,7 +36,11 @@ const Question = ({
     setTimeout(() => {
       setAnswer({
         selectedAnswer: answer,
-        isCorrect: QUESTIONS[index].answers[0] === answer,
+        isCorrect:
+          QUESTIONS[index].answers[0] === answer ||
+          QUESTIONS[index].answers[1] === answer ||
+          QUESTIONS[index].answers[2] === answer ||
+          QUESTIONS[index].answers[3] === answer,
       });
 
       setTimeout(() => {
@@ -55,30 +59,20 @@ const Question = ({
 
   return (
     <>
-      <div className="semi_header">
-        <QuestionTimer
-          QUESTIONS={QUESTIONS}
-          userAnswers={userAnswers}
-          key={timer}
-          timeout={timer}
-          onTimeOut={answer.selectedAnswer === "" ? onSkipAnswer : null}
-          mode={answerState}
-        />
-      </div>
-      <div id="question">
+      <div id='question'>
         {/* NOTES::
              KEY USE CASES OTHER THAN IN MAPPING
              -- keys can be used to reset the compfonent by react.(unmount and remount)
              */}
-        <div className="question_main animate__animated animate__bounceInRight">
-          <p className="question_number">
+        <div className='question_main animate__animated animate__bounceInRight'>
+          <p className='question_number'>
             {`Question ${userAnswers.length + 1}`}
             {` out of  ${QUESTIONS.length}`}
           </p>
-          <h2 className="">{QUESTIONS[index].text}</h2>
+          <h2 className=''>{QUESTIONS[index].text}</h2>
         </div>
 
-        <div className="quiz_answers animate__animated animate__bounceInRight">
+        <div className='quiz_answers animate__animated animate__bounceInRight'>
           <Answers
             COLORS={COLORS}
             selectedAnswer={answer.selectedAnswer}

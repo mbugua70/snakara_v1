@@ -3,6 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
 
+:root {
+  --background-main: #f9f2e5;
+  --main-color: #0a0a0a;
+  --secondary-color: #ababa3;
+  --tertiary-color: #656969;
+  --secondary-two-color: #e2e3e6;
+  --color-one: #5a4637;
+}
+
+
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -41,11 +51,12 @@ body {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  background-image: url("../public/image/imgeone.jpg");
+  background-color: var(--background-main);
+  /* background-image: url("../public/image/imgeone.jpg");
   background-repeat: no-repeat;
   background-origin: content-box;
   background-position: left top;
-  background-size: contain;
+  background-size: contain; */
   overflow-y: hidden;
   overflow-x: hidden;
 }
@@ -58,6 +69,9 @@ body {
 
 .body_background{
   height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
 }
 
@@ -142,7 +156,7 @@ progress{
 }
 
 progress {
-  accent-color: #0cb436;
+  accent-color: var(--tertiary-color);
 }
 .close_parent{
   padding: 20px;
@@ -225,7 +239,8 @@ div:where(.swal2-icon).swal2-error {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
 #question{
@@ -280,13 +295,16 @@ div:where(.swal2-icon).swal2-error {
 
 #question h2 {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
-  font-weight: normal;
+  font-size: 2.5rem;
+  font-weight: 500;
   margin: 0.5rem 0 2.5rem 0;
   width: 100%;
   color: #000;
 
 }
+
+
+/* answers */
 
 #answers {
   list-style: none;
@@ -297,15 +315,15 @@ div:where(.swal2-icon).swal2-error {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  column-gap: 2.5rem;
-  row-gap: 1.5rem;
+  column-gap: 3.5rem;
+  row-gap: 2.5rem;
   /* gap: 0.5rem; */
 }
 
 .answer {
   width: 38%;
   height: 230px;
-
+  position: relative;
 }
 
 .answer button {
@@ -314,9 +332,9 @@ div:where(.swal2-icon).swal2-error {
   height: 100%;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.75rem;
-  padding: 40px;
+  padding: 80px;
   border: none;
-  border-radius: 50%;
+  border-radius: 32px;
   cursor: pointer;
   color: #e9e8e8;
   transition: all 0.2s ease-in-out;
@@ -359,6 +377,43 @@ div:where(.swal2-icon).swal2-error {
   color: #000
 }
 
+.name_letter{
+  position: absolute;
+  z-index: 998;
+  font-size: 3rem;
+  font-weight: bold;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid var(--color-one)
+}
+
+.A {
+ top: -20px;
+ left: -10px;
+}
+
+.B{
+  top: -20px;
+  left: -10px;
+}
+
+.C {
+ top: -20px;
+ left: -10px;
+}
+
+.D{
+  top: -20px;
+  left: -10px;
+}
+
+
 #skip-action {
   margin-top: 2rem;
 }
@@ -377,11 +432,14 @@ div:where(.swal2-icon).swal2-error {
   color: #c7bfd6;
 }
 
+
+/* summary */
+
 #summary {
-  max-width: 40rem;
+  max-width: 50rem;
   margin: 2rem auto;
   padding: 2rem;
-  background: linear-gradient(180deg, #61e281 0%, #2ab24b 100%);
+  background: linear-gradient(180deg, #656969 0%, #5a4637 100%);
   color: #191321;
   border-radius: 8px;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.6);
@@ -398,7 +456,7 @@ div:where(.swal2-icon).swal2-error {
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
   border: 2px solid #3a2353;
   border-radius: 50%;
-  background: #0cb436
+  background: var(--secondary-color)
 }
 
 #summary h2 {
@@ -423,21 +481,21 @@ div:where(.swal2-icon).swal2-error {
 
 #summary h3 {
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 1rem;
+  font-size: 2rem;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0cb436 ;
+  background: var(--secondary-color) ;
   color: #d8cde8;
-  width: 2rem;
-  height: 2rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
 }
 
 #summary .question {
   margin: 0.25rem 0;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #000;
 }
 
@@ -458,7 +516,8 @@ div:where(.swal2-icon).swal2-error {
 
 #summary .user-answer.skipped {
   color: #d1baf2;
-  font-weight: normal;
+  font-weight: 500;
+  font-size: 1.25rem;
 }
 
 #summary-stats {
@@ -486,7 +545,7 @@ div:where(.swal2-icon).swal2-error {
 #summary-stats .text {
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 1.25rem;
   color: #131313;
   margin-top: -0.7rem;
   margin-left: 0.2rem;
@@ -502,11 +561,12 @@ div:where(.swal2-icon).swal2-error {
   margin-top: 2rem;
   margin: 2rem auto 4rem auto;
   padding-bottom: 1rem;
-  height: 12rem;
+  height: 18rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  border-radius: 30px;
+  overflow: hidden;
 }
 
 .question_main :nth-child(2){
@@ -516,7 +576,7 @@ div:where(.swal2-icon).swal2-error {
 
 
 .question_number{
-  background-color: #2ab24b;
+  background-color: var(--color-one);
   width: 100%;
   padding-inline: 1rem;
   padding-block: 10px;
@@ -524,11 +584,13 @@ div:where(.swal2-icon).swal2-error {
   color: #fff !important;
   height: 28%;
   vertical-align: center;
+  font-size: 1.5rem;
 }
 
 .header_question{
-  background-color: #2ab24b;
-  height: 14rem;
+  width: 100%;
+  background-color: var(--tertiary-color);
+  height: 24rem;
   padding-block: 1rem;
   top: 0px;
   margin-bottom: 0px;
@@ -698,6 +760,10 @@ div:where(.swal2-icon).swal2-error {
 }
 
 
+/* summary */
+
+
+
 @keyframes slide-in-from-bottom {
   0% {
     opacity: 0;
@@ -750,7 +816,7 @@ div:where(.swal2-icon).swal2-error {
    box-sizing: border-box !important;
    margin-block: 25px !important;
    padding: 120px 60px !important;
-   border: 15px solid #1ea62c !important;
+   border: 15px solid var(--tertiary-color) !important;
    font-size: 100px !important;
    font-weight: 500;
    text-align: center;
@@ -760,7 +826,7 @@ div:where(.swal2-icon).swal2-error {
 
 
  ::placeholder{
-   color:#1ea62c;
+   color: var(--tertiary-color);
 
  }
 
@@ -860,7 +926,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm{
   .input-field input{
     margin-block: 12px !important;
     padding: 50px 30px !important;
-    border: 5px solid #1ea62c !important;
+    border: 5px solid var(--tertiary-color) !important;
     text-align: center;
     font-size: 52px !important;
     /* text-transform: uppercase; */
@@ -869,7 +935,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm{
   }
 
   ::placeholder{
-    color: #1ea62c !important;
+    color: var(--tertiary-color) !important;
   }
 
 }
@@ -903,7 +969,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm{
   box-sizing: border-box !important;
   margin-block: 15px !important;
   padding: 40px 30px !important;
-  border: 5px solid #1ea62c !important;
+  border: 5px solid var(--tertiary-color) !important;
   font-size: 32px !important;
   font-weight: 500;
   text-align: center;
@@ -914,7 +980,7 @@ div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm{
 
 ::placeholder{
   text-transform: uppercase;
-  color:#1ea62c;
+  color: var(--tertiary-color);
 
 }
 
@@ -959,7 +1025,7 @@ div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line]{
   .input-field input{
     margin-block: 12px !important;
     padding: 32px 28px !important;
-    border: 4px solid #1ea62c !important;
+    border: 4px solid var(--tertiary-color) !important;
     text-align: center;
     font-size: 28px !important;
     text-transform: uppercase;
@@ -968,6 +1034,6 @@ div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line]{
   }
 
   ::placeholder{
-    color: #1ea62c !important;
+    color: var(--tertiary-color) !important;
   }
 }

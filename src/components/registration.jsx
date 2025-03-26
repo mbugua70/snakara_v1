@@ -1,7 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-refresh/only-export-components */
-import { Form, redirect, useNavigation, useLoaderData } from "react-router-dom";
 import Styles from "./form.module.css";
+import { useEffect } from "react";
+import { Form, redirect, useNavigation, useLoaderData } from "react-router-dom";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import videoComp from "../../public/video/landingpage-mob.mp4";
 import { loginUser } from "./api";
 
 // using loader to pass the message down
@@ -90,49 +93,72 @@ const LoginPage = () => {
   const loginMssgError = useLoaderData();
   // const errorMessage = useActionData();
 
+  console.log(loginMssgError, "error message");
+
+  useEffect(() => {
+    if (loginMssgError) {
+      const MySwal = withReactContent(Swal);
+      MySwal.fire({
+        html: <i>{loginMssgError}</i>,
+        icon: "error",
+      });
+    }
+  }, [loginMssgError]);
 
   return (
     <>
       <div className={Styles.login_container}>
+        {/* video  */}
+        <div className={Styles.video_container}>
+          <video
+            autoPlay
+            muted
+            loop
+            id='myvideo'
+            width='390'
+            src={videoComp}
+            poster=''
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "block",
+              objectFit: "cover",
+            }}></video>
+          <div className={Styles.details_whiskey}>
+            <span>Find Your</span>
+            <span>Flavour</span>
+          </div>
+        </div>
+
         {/* below instead of using the form we wil use Form from the react router */}
-        <Form className={Styles.form} method="post" replace>
-          <div className="row">
-            <div className="errorlgnmsg">
-              {loginMssgError && (
-                <div className="alert alert-danger" role="alert">
-                  <p>
-                    <i className="material-icons">error</i>
-                  </p>
-                  <p className="error_alert_message">{loginMssgError}</p>
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="row input-field">
+        <Form className={Styles.form} method='post' replace>
+          <div className='row input-field'>
             {/* <label htmlFor="name">Name</label> */}
-            <input type="text" name="name" id="name" placeholder="Name" />
+            <input type='text' name='name' id='name' placeholder='Name' />
           </div>
-          <div className="row input-field">
+          <div className='row input-field'>
             {/* <label htmlFor="phone_number">Phone</label> */}
             <input
-              type="tel"
-              name="phone"
-              id="phone"
-              placeholder="Phone Number"
+              type='tel'
+              name='phone'
+              id='phone'
+              placeholder='Phone Number'
             />
           </div>
-          <div className="row input-field  button-style">
+          <div className='row input-field  button-style'>
             <button
               className={Styles.button}
-              disabled={navigation.state === "submitting"}
-            >
-              {navigation.state === "submitting" ? "registering..." : "submit"}
+              disabled={navigation.state === "submitting"}>
+              {navigation.state === "submitting"
+                ? "registering..."
+                : "Take the quiz"}
             </button>
           </div>
 
           {/* </form> */}
         </Form>
       </div>
+      <ToastContainer />
     </>
   );
 };

@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
+import headerImage from "../../public/image/about.png"
 
 /* eslint-disable react/prop-types */
 const Scoreboard = ({ userAnswers, QUESTIONS, generalTimer }) => {
   const [remainingTime, setRemainingTime] = useState(generalTimer);
   const answeredCorrectly = userAnswers.filter(
-    (answer, index) => answer === QUESTIONS[index].answers[0]
+    (answer, index) =>
+      answer === QUESTIONS[index].answers[0] ||
+      answer === QUESTIONS[index].answers[1] ||
+      answer === QUESTIONS[index].answers[0] ||
+      answer === QUESTIONS[index].answers[2] ||
+      answer === QUESTIONS[index].answers[3]
   );
 
   const answeredPercent = Math.round(
@@ -28,15 +34,18 @@ const Scoreboard = ({ userAnswers, QUESTIONS, generalTimer }) => {
 
   return (
     <>
-      <div className="scoreboard">
-        <div className="scores_main">
+      {/* <div className='scoreboard'>
+        <div className='scores_main'>
           <h2>Scores</h2>
           <p>{isNaN(answeredPercent) ? "0" : answeredPercent}%</p>
         </div>
-        <div className="timer_main">
+        <div className='timer_main'>
           <h2>Timer</h2>
           <p>{remainingTime > 0 ? countDown | 0 : "0"}</p>
         </div>
+      </div> */}
+      <div className="image_containers">
+        <img src={headerImage} alt="" style={{width: "100%", height: "100%"}}/>
       </div>
     </>
   );

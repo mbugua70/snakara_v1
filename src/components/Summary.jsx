@@ -10,7 +10,11 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
   const navigate = useNavigate();
   const skippedAnswers = userAnswers.filter((answer) => answer === null);
   const answeredCorrectly = userAnswers.filter(
-    (answer, index) => answer === QUESTIONS[index].answers[0]
+    (answer, index) =>
+      answer === QUESTIONS[index].answers[0] ||
+      answer === QUESTIONS[index].answers[1] ||
+      answer === QUESTIONS[index].answers[2] ||
+      answer === QUESTIONS[index].answers[3]
   );
 
   const skippedAnswerPercent = Math.round(
@@ -40,36 +44,37 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
     updateFun();
   }, [answeredCorrectlyPercent]);
 
-  console.log(updateScore.success);
-
   setTimeout(() => {
+    console.log("test");
+    console.log(userAnswers.length);
     if (
       updateScore.success !== undefined &&
       updateScore.success === true &&
-      userAnswers.length === 10
+      userAnswers.length === 5
     ) {
+      console.log(updateScore, "score");
       navigate("/");
       localStorage.removeItem("user");
     }
-  }, 3000);
+  }, 6000);
 
   return (
     <>
-      <div id="summary">
-        <img src={CompltedImage} alt="Completed quiz" />
+      <div id='summary'>
+        <img src={CompltedImage} alt='Completed quiz' />
         <h2>Quiz Completed</h2>
-        <div id="summary-stats">
+        <div id='summary-stats'>
           <p>
-            <span className="number">{skippedAnswerPercent}%</span>
-            <span className="text">Skipped</span>
+            <span className='number'>{skippedAnswerPercent}%</span>
+            <span className='text'>Skipped</span>
           </p>
           <p>
-            <span className="number">{answeredCorrectlyPercent}%</span>
-            <span className="text">Answered Correctly</span>
+            <span className='number'>{answeredCorrectlyPercent}%</span>
+            <span className='text'>Answered Correctly</span>
           </p>
           <p>
-            <span className="number">{answeredWronglyPercent}%</span>
-            <span className="text">Answered Incorrectly</span>
+            <span className='number'>{answeredWronglyPercent}%</span>
+            <span className='text'>Answered Incorrectly</span>
           </p>
         </div>
         <ol>
@@ -85,7 +90,7 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
             return (
               <li key={index}>
                 <h3>{index + 1}</h3>
-                <p className="question">{QUESTIONS[index].text}</p>
+                <p className='question'>{QUESTIONS[index].text}</p>
                 <p className={cssClass}>{answer ?? "SKIPPED"}</p>
               </li>
             );
