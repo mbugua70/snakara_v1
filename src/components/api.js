@@ -1,6 +1,6 @@
 export async function loginUser(creds) {
   console.log(creds);
-  const res = await fetch("http://localhost:4040/api/players/signup", {
+  const res = await fetch("https://stark-garden-63439-342c9398264c.herokuapp.com/api/players/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -27,7 +27,7 @@ export async function getQuestions() {
   if (!user) {
     return;
   }
-  const res = await fetch("http://localhost:4040/api/questions", {
+  const res = await fetch("https://stark-garden-63439-342c9398264c.herokuapp.com/api/questions", {
     headers: {
       Authorization: `Bearer ${user.token}`,
     },
@@ -53,7 +53,7 @@ export async function getColors() {
   if (!user) {
     return;
   }
-  const res = await fetch("http://localhost:4040/api/colors", {
+  const res = await fetch("https://stark-garden-63439-342c9398264c.herokuapp.com/api/colors", {
     headers: {
       Authorization: `Bearer ${user.token}`,
     },
@@ -82,7 +82,7 @@ export async function updatePlayer(updateData) {
   const id = user.userId;
   console.log(id);
   try {
-    const res = await fetch(`http://localhost:4040/api/players/signup/${id}`, {
+    const res = await fetch(`https://stark-garden-63439-342c9398264c.herokuapp.com/api/players/signup/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

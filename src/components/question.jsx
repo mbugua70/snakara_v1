@@ -2,6 +2,7 @@
 import { useState } from "react";
 import QuestionTimer from "./Quiztimer";
 import Answers from "./answers";
+import SecondaryButton from "../../UI/SecondaryButton";
 
 const Question = ({
   onSelect,
@@ -17,7 +18,6 @@ const Question = ({
   });
 
   let timer = 13000;
-
 
   if (answer.selectedAnswer) {
     timer = 1000;
@@ -80,6 +80,10 @@ const Question = ({
             onSelect={handleSelectedAnswer}
             answerState={answerState}
           />
+        </div>
+        {/* button to continue to next quiz */}
+        <div className='next_button'>
+          <SecondaryButton onClick={onSkipAnswer}>Continue</SecondaryButton>
         </div>
       </div>
     </>

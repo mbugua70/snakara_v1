@@ -4,11 +4,11 @@ import Styles from "./form.module.css";
 import { useEffect } from "react";
 import { Form, redirect, useNavigation, useLoaderData } from "react-router-dom";
 import { ToastContainer, toast, Bounce } from "react-toastify";
-import videoComp from "../../public/video/landingpage-mob.mp4";
 import { loginUser } from "./api";
 
 // using loader to pass the message down
 
+import videoComp from "/video/landingpage-mob.mp4";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
