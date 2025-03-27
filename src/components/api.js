@@ -77,7 +77,7 @@ export async function updatePlayer(updateData) {
 
   const id = user.userId;
   try {
-    const res = await fetch(`${API_BASE_URL}/api/players/${id}`, {
+    const res = await fetch(`${API_BASE_URL}/api/players/signup/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
