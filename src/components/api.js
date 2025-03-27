@@ -1,6 +1,7 @@
 import 'dotenv/config'
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 export async function loginUser(creds) {
   const res = await fetch(`${API_BASE_URL}/api/players/signup`, {
