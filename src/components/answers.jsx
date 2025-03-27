@@ -6,18 +6,20 @@ import correctPic from "../assets/image/correct.png";
 import correctSoundFile from "../assets/audio/correct.wav";
 import wrongSoundFile from "../assets/audio/wrong.wav";
 
-const Answers = ({ onSelect, answer, selectedAnswer, answerState, COLORS }) => {
+const Answers = ({ onSelect, answer: userAnswer, selectedAnswer, answerState, COLORS }) => {
   // audio object creation
   const correctSound = new Howl({ src: correctSoundFile });
   const wrongSound = new Howl({ src: wrongSoundFile });
   const shuffleQuestions = useRef();
   if (!shuffleQuestions.current) {
-    shuffleQuestions.current = [...answer];
+    shuffleQuestions.current = [...userAnswer];
     shuffleQuestions.current.sort(() => Math.random() - 0.5);
   }
 
   let namingLetter;
   let answerLetter = ["A", "B", "C", "D"];
+
+
 
   return (
     <ul id='answers'>
@@ -96,15 +98,14 @@ const Answers = ({ onSelect, answer, selectedAnswer, answerState, COLORS }) => {
         }
 
         // wrongSound play
-
         if (answerState === "wrong" && isAnswered && isClicked) {
-          console.log("sound play");
           wrongSound.play();
         }
 
         const colorsItems = COLORS.map((items) => items.colors_answers);
         const colorsItem = colorsItems[0][index];
-        namingLetter = answerLetter[index];
+        const originalIndex = userAnswer.findIndex((item) => item === shuffleQuestions.current[index]);
+        namingLetter = answerLetter[originalIndex];
         return (
           <li className='answer' key={answer}>
             <button

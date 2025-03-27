@@ -1,58 +1,74 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CompltedImage from "../assets/image/completedQuiz.png";
 import { updatePlayer } from "./api";
 
+import Cocktail from "/image/cocktail.webp";
+
+const resultsMap = {
+  A: "Crisp & Refreshing: Casamigos Paloma (Tequila, grapefruit, lime, soda) – Light, fresh, and effortlessly cool.",
+  B: "Fruity & Fun: Passionfruit Margarita (Tequila, passionfruit, lime, agave) – Vibrant and bold, just like you!",
+  C: "Smooth & Sophisticated: Coconut Tequila Sour (Tequila, coconut cream, lime, bitters) – Luxurious and indulgent.",
+  D: "Adventurous & Unexpected: Spicy Berry Mule (Tequila, berries, ginger beer, chili) – A surprising twist, full of excitement.",
+};
+
 const Summary = ({ userAnswers, QUESTIONS }) => {
   const [updateScore, setUpdateScore] = useState({});
   const navigate = useNavigate();
-  const skippedAnswers = userAnswers.filter((answer) => answer === null);
-  const answeredCorrectly = userAnswers.filter(
-    (answer, index) =>
-      answer === QUESTIONS[index].answers[0] ||
-      answer === QUESTIONS[index].answers[1] ||
-      answer === QUESTIONS[index].answers[2] ||
-      answer === QUESTIONS[index].answers[3]
-  );
 
+  // Count skipped answers
+  const skippedAnswers = userAnswers.filter((answer) => answer === null);
   const skippedAnswerPercent = Math.round(
     (skippedAnswers.length / userAnswers.length) * 100
   );
 
-  const answeredCorrectlyPercent = Math.round(
-    (answeredCorrectly.length / userAnswers.length) * 100
+  // Count the most selected category (A, B, C, or D)
+  const choiceCount = { A: 0, B: 0, C: 0, D: 0 };
+
+  const choiceLabels = ["A", "B", "C", "D"];
+
+  userAnswers.forEach((answer, index) => {
+    if (answer !== null) {
+      const selectedIndex = QUESTIONS[index].answers.findIndex(
+        (option) => option === answer
+      );
+
+      if (selectedIndex !== -1) {
+        const selectedLabel = choiceLabels[selectedIndex];
+        console.log(selectedLabel, "selectedLabel");
+        choiceCount[selectedLabel]++;
+        console.log(choiceCount[selectedLabel], "test");
+      }
+    }
+  });
+
+  const mostChosenCategory = Object.keys(choiceCount).reduce((a, b) =>
+    choiceCount[a] > choiceCount[b] ? a : b
   );
 
-  const answeredWronglyPercent =
-    100 - (answeredCorrectlyPercent + skippedAnswerPercent);
+  console.log(choiceCount, "choice count");
 
-  // const skippedAnswerpercent = skippedAnswers/userAnswers.length
-
-  // redirect the user once finish playing
+  const finalRecommendation =
+    resultsMap[mostChosenCategory] || "No recommendation available.";
 
   useEffect(() => {
     async function updateFun() {
       const updateValue = {
-        score: answeredCorrectlyPercent,
+        score: mostChosenCategory, // Storing the most chosen category instead of a numeric score
       };
       const updateResult = await updatePlayer(updateValue);
       setUpdateScore(updateResult);
     }
 
     updateFun();
-  }, [answeredCorrectlyPercent]);
+  }, [mostChosenCategory]);
 
   setTimeout(() => {
-    console.log("test");
-    console.log(userAnswers.length);
     if (
       updateScore.success !== undefined &&
       updateScore.success === true &&
       userAnswers.length === 5
     ) {
-      console.log(updateScore, "score");
       navigate("/");
       localStorage.removeItem("user");
     }
@@ -60,42 +76,56 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
 
   return (
     <>
-      <div id='summary'>
-        <img src={CompltedImage} alt='Completed quiz' />
-        <h2>Quiz Completed</h2>
-        <div id='summary-stats'>
-          <p>
-            <span className='number'>{skippedAnswerPercent}%</span>
-            <span className='text'>Skipped</span>
-          </p>
-          <p>
-            <span className='number'>{answeredCorrectlyPercent}%</span>
-            <span className='text'>Answered Correctly</span>
-          </p>
-          <p>
-            <span className='number'>{answeredWronglyPercent}%</span>
-            <span className='text'>Answered Incorrectly</span>
-          </p>
+      {/* header summary details */}
+
+      <div className='header_summary'>
+        <div className='row_one_summary'>
+          <div className='rows_one_details'>
+            <p className='animate__animated animate__slideInRight'>
+              Your matched{" "}
+            </p>
+            <p className='animate__animated animate__slideInRight'>Cocktail</p>
+            <p className='animate__animated animate__slideInLeft'>Results </p>
+          </div>
+          <div className='row_two_details'>
+            <p>{finalRecommendation}</p>
+          </div>
         </div>
-        <ol>
-          {userAnswers.map((answer, index) => {
-            let cssClass = "user-answer";
-            if (answer === QUESTIONS[index].answers[0]) {
-              cssClass += " correct";
-            } else if (answer === null) {
-              cssClass += " skipped";
-            } else {
-              cssClass += " wrong";
-            }
-            return (
-              <li key={index}>
-                <h3>{index + 1}</h3>
-                <p className='question'>{QUESTIONS[index].text}</p>
-                <p className={cssClass}>{answer ?? "SKIPPED"}</p>
-              </li>
-            );
-          })}
-        </ol>
+        <div className='row_two_summary'>
+          <img
+            src={Cocktail}
+            alt='cocktail image'
+            style={{ width: "100%", height: "100%" }}
+            className='animate__animated animate__rotateIn'
+          />
+        </div>
+      </div>
+
+      {/* summary details */}
+
+      <div className='main_summary'>
+        <div id='summary'>
+          <div id='summary-stats'>
+            <p>
+              <span className='text'>Summary</span>
+            </p>
+          </div>
+          <ol>
+            {userAnswers.map((answer, index) => {
+              let cssClass = "user-answer";
+              if (answer === null) {
+                cssClass += " skipped";
+              }
+              return (
+                <li key={index}>
+                  <h3>{index + 1}</h3>
+                  <p className='question'>{QUESTIONS[index].text}</p>
+                  <p className={cssClass}>{answer ?? "SKIPPED"}</p>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </div>
     </>
   );

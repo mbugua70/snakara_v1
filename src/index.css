@@ -9,6 +9,9 @@
   --tertiary-color: #656969;
   --secondary-two-color: #e2e3e6;
   --color-one: #5a4637;
+  --light--primary: #f8ce52;
+  --lighter-primary: #f8db81;
+  --brown-primary: #721f2e;
 }
 
 html {
@@ -195,7 +198,7 @@ div:where(.swal2-icon).swal2-error {
 }
 
 /* secondary button */
-.next_button{
+.next_button {
   margin-inline: auto;
   margin-top: 50px;
   width: 80%;
@@ -437,15 +440,73 @@ div:where(.swal2-icon).swal2-error {
 
 /* summary */
 
+.header_summary {
+  background: linear-gradient(90deg, #f8ce52 0%, #fae5a7 100%);
+  width: 100%;
+  height: 35%;
+  display: flex;
+  column-gap: 20px;
+  padding: 20px;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0px;
+}
+
+.row_two_summary {
+  width: 400px;
+  height: 400px;
+}
+
+.row_two_summary img {
+  border-radius: 50%;
+}
+
+.row_one_summary {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.row_two_details{
+  margin-top: 30px;
+}
+
+.row_two_details p{
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.row_one_summary .rows_one_details p {
+  font-size: 5rem;
+  line-height: 50px;
+  font-weight: 600;
+}
+
+.row_one_summary .rows_one_details p:last-child{
+  background-color: #fff;
+  width: fit-content;
+  padding: 12px;
+}
+
+.main_summary{
+  height: 65%;
+  width: 100%;
+}
+
 #summary {
+  width: 70%;
+  height: 76%;
   max-width: 50rem;
   margin: 2rem auto;
   padding: 2rem;
-  background: linear-gradient(180deg, #656969 0%, #5a4637 100%);
+  /* background: linear-gradient(180deg, #656969 0%, #5a4637 100%); */
   color: #191321;
   border-radius: 8px;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.6);
   animation: slide-in-from-bottom 0.7s ease-out;
+  border: 4px solid var(--brown-primary);
+  border-radius: 12px;
 }
 
 #summary img {
@@ -488,7 +549,7 @@ div:where(.swal2-icon).swal2-error {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--secondary-color);
+  background: var(--brown-primary);
   color: #d8cde8;
   width: 4rem;
   height: 4rem;
