@@ -1,5 +1,9 @@
+import 'dotenv/config'
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 export async function loginUser(creds) {
-  const res = await fetch("https://stark-garden-63439-342c9398264c.herokuapp.com/api/players/signup", {
+  const res = await fetch(`${API_BASE_URL}/api/players/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,7 +28,7 @@ export async function getQuestions() {
   if (!user) {
     return;
   }
-  const res = await fetch("https://stark-garden-63439-342c9398264c.herokuapp.com/api/questions", {
+  const res = await fetch(`${API_BASE_URL}/api/questions`, {
     headers: {
       Authorization: `Bearer ${user.token}`,
     },
@@ -48,7 +52,7 @@ export async function getColors() {
   if (!user) {
     return;
   }
-  const res = await fetch("https://stark-garden-63439-342c9398264c.herokuapp.com/api/colors", {
+  const res = await fetch(`${API_BASE_URL}/api/colors`, {
     headers: {
       Authorization: `Bearer ${user.token}`,
     },
@@ -73,7 +77,7 @@ export async function updatePlayer(updateData) {
 
   const id = user.userId;
   try {
-    const res = await fetch(`https://stark-garden-63439-342c9398264c.herokuapp.com/api/players/signup/${id}`, {
+    const res = await fetch(`${API_BASE_URL}/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
