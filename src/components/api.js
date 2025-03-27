@@ -1,5 +1,4 @@
 export async function loginUser(creds) {
-  console.log(creds);
   const res = await fetch("https://stark-garden-63439-342c9398264c.herokuapp.com/api/players/signup", {
     method: "POST",
     headers: {
@@ -10,8 +9,6 @@ export async function loginUser(creds) {
   });
   const data = await res.json();
   if (!res.ok) {
-    console.log(data);
-
     throw {
       message: data.error,
     };
@@ -40,8 +37,6 @@ export async function getQuestions() {
       // status: res.status
     };
   }
-
-  console.log(res);
   const data = await res.json();
   return data;
 }
@@ -66,21 +61,17 @@ export async function getColors() {
       // status: res.status
     };
   }
-
-  console.log(res);
   const data = await res.json();
   return data;
 }
 
 export async function updatePlayer(updateData) {
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
   if (!user) {
     return;
   }
 
   const id = user.userId;
-  console.log(id);
   try {
     const res = await fetch(`https://stark-garden-63439-342c9398264c.herokuapp.com/api/players/signup/${id}`, {
       method: "PATCH",
