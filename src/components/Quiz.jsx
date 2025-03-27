@@ -10,6 +10,7 @@ import { fetchData } from "./api";
 import { requireAuth } from "./utilis";
 import Scoreboard from "./Scoreboard";
 
+
 // data (question)
 
 export const quizLoader = async ({ request }) => {
@@ -95,6 +96,8 @@ const Quiz = () => {
                     onSelect={handleSelectedAnswer}
                     onSkipAnswer={handleSkipAnswer}
                   />
+
+
                 </>
               );
             }}

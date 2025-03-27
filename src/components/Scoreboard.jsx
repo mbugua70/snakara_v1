@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import headerImage from "../../public/image/about.png";
+import headerImage from "/image/about.png";
 
 /* eslint-disable react/prop-types */
 const Scoreboard = ({ userAnswers, QUESTIONS, generalTimer }) => {
