@@ -17,11 +17,9 @@ const QuestionTimer = ({
   const answeredPercent = Math.round(
     (answeredCorrectly.length / userAnswers.length) * 100
   );
-  console.log(answeredPercent);
   useEffect(() => {
-    console.log("TIMEOUT");
+
     const timer = setTimeout(onTimeOut, timeout);
-    console.log("Timeout 2");
     return () => {
       clearTimeout(timer);
     };
@@ -29,14 +27,12 @@ const QuestionTimer = ({
 
   // progress configuration
   useEffect(() => {
-    console.log("INTERVAL");
     if (timeout <= 0) return;
     const interval = setInterval(() => {
       setRemainingTime((prevTime) => prevTime - 100);
     }, 100);
 
     return () => {
-      console.log("Working");
       clearInterval(interval);
     };
   }, [timeout]);

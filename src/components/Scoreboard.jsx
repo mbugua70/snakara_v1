@@ -21,7 +21,6 @@ const Scoreboard = ({ userAnswers, QUESTIONS, generalTimer }) => {
 
   // progress configuration
   useEffect(() => {
-    console.log("INTERVAL");
     if (generalTimer <= 0) return;
     const interval = setInterval(() => {
       setRemainingTime((prevTime) => prevTime - 100);

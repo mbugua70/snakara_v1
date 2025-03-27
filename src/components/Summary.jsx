@@ -35,9 +35,7 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
 
       if (selectedIndex !== -1) {
         const selectedLabel = choiceLabels[selectedIndex];
-        console.log(selectedLabel, "selectedLabel");
         choiceCount[selectedLabel]++;
-        console.log(choiceCount[selectedLabel], "test");
       }
     }
   });
@@ -46,7 +44,7 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
     choiceCount[a] > choiceCount[b] ? a : b
   );
 
-  console.log(choiceCount, "choice count");
+
 
   const finalRecommendation =
     resultsMap[mostChosenCategory] || "No recommendation available.";

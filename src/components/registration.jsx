@@ -34,7 +34,7 @@ export const loginAction = async ({ request }) => {
     // response.body = true;
     return redirect(pathname);
   } catch (err) {
-    // console.log(err.includes("Failed to fetch"));
+
     if (err) {
       if (err.message.phone !== "") {
         const MySwal = withReactContent(Swal);
@@ -92,8 +92,6 @@ const LoginPage = () => {
   const navigation = useNavigation();
   const loginMssgError = useLoaderData();
   // const errorMessage = useActionData();
-
-  console.log(loginMssgError, "error message");
 
   useEffect(() => {
     if (loginMssgError) {
