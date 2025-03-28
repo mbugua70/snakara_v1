@@ -6,10 +6,10 @@ import { updatePlayer } from "./api";
 import Cocktail from "/image/cocktail.webp";
 
 const resultsMap = {
-  A: "Crisp & Refreshing: Casamigos Paloma (Tequila, grapefruit, lime, soda) – Light, fresh, and effortlessly cool.",
-  B: "Fruity & Fun: Passionfruit Margarita (Tequila, passionfruit, lime, agave) – Vibrant and bold, just like you!",
-  C: "Smooth & Sophisticated: Coconut Tequila Sour (Tequila, coconut cream, lime, bitters) – Luxurious and indulgent.",
-  D: "Adventurous & Unexpected: Spicy Berry Mule (Tequila, berries, ginger beer, chili) – A surprising twist, full of excitement.",
+  A: "ROOTED IN TEQUILA",
+  B: "CASA PALOMA",
+  C: "ORO VIEJO",
+  D: "CASA PALOMA",
 };
 
 const Summary = ({ userAnswers, QUESTIONS }) => {
