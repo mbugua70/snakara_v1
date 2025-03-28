@@ -217,6 +217,16 @@ div:where(.swal2-icon).swal2-error {
   font-weight: 600;
   border-style: none;
   border-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.secondary_button i{
+  font-size: 4rem;
+  font-weight: bold;
+
 }
 
 /* reactQuiz stlying */
@@ -608,7 +618,7 @@ div:where(.swal2-icon).swal2-error {
 #summary-stats .text {
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
-  font-size: 1.25rem;
+  font-size: 2rem;
   color: #131313;
   margin-top: -0.7rem;
   margin-left: 0.2rem;
