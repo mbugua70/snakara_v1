@@ -274,7 +274,7 @@ div:where(.swal2-icon).swal2-error {
 
 #question {
   height: calc(100vh - 10rem);
-  padding-top: 10.5rem;
+  padding-top: 13.5rem;
 }
 
 #question-overview {
@@ -681,8 +681,8 @@ div:where(.swal2-icon).swal2-error {
 
 .image_containers {
   margin: 60px;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
 }
 
 .scoreboard p {
