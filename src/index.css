@@ -223,14 +223,12 @@ div:where(.swal2-icon).swal2-error {
   column-gap: 10px;
 }
 
-.secondary_button i{
+.secondary_button i {
   font-size: 4rem;
   font-weight: bold;
-
 }
 
 /* reactQuiz stlying */
-
 #last-try {
   max-width: 40rem;
   margin: 2rem auto;
@@ -267,11 +265,16 @@ div:where(.swal2-icon).swal2-error {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url("../public/image/interactive-screen.jpg");
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position: left top;
+  background-size: contain;
 }
 
 #question {
   height: calc(100vh - 10rem);
-  padding-top: 4rem;
+  padding-top: 10.5rem;
 }
 
 #question-overview {
@@ -478,11 +481,11 @@ div:where(.swal2-icon).swal2-error {
   text-align: start;
 }
 
-.row_two_details{
+.row_two_details {
   margin-top: 30px;
 }
 
-.row_two_details p{
+.row_two_details p {
   font-size: 1.5rem;
   font-weight: 500;
 }
@@ -493,13 +496,13 @@ div:where(.swal2-icon).swal2-error {
   font-weight: 600;
 }
 
-.row_one_summary .rows_one_details p:last-child{
+.row_one_summary .rows_one_details p:last-child {
   background-color: #fff;
   width: fit-content;
   padding: 12px;
 }
 
-.main_summary{
+.main_summary {
   height: 65%;
   width: 100%;
 }
