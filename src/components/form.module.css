@@ -13,17 +13,22 @@
 .login_container {
   width: 90%;
   margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .video_container {
   margin-inline: auto !important;
   width: 90%;
   position: relative;
+  margin-bottom: 60px;
 }
 
 .details_whiskey{
     position: absolute;
-    bottom: -180px;
+    bottom: -260px;
 }
 
 .details_whiskey span{
@@ -31,7 +36,7 @@
     margin-block: 0px;
     padding-top: 0px;
     padding-bottom: 0px;
-    font-size: 10rem;
+    font-size: 7rem;
     font-weight: 500;
     line-height: 140px;
 }

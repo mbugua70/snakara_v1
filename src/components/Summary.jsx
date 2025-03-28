@@ -14,6 +14,7 @@ const resultsMap = {
 
 const Summary = ({ userAnswers, QUESTIONS }) => {
   const [updateScore, setUpdateScore] = useState({});
+  const [applyClass, setApplyClass] = useState(false);
   const navigate = useNavigate();
 
   // Count skipped answers
@@ -44,12 +45,15 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
     choiceCount[a] > choiceCount[b] ? a : b
   );
 
-
-  console.log(choiceCount, "count")
-
+  console.log(choiceCount, "count");
 
   const finalRecommendation =
     resultsMap[mostChosenCategory] || "No recommendation available.";
+
+  function handleRestart() {
+    navigate("/");
+    localStorage.removeItem("user");
+  }
 
   useEffect(() => {
     async function updateFun() {
@@ -63,6 +67,14 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
     updateFun();
   }, [mostChosenCategory]);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setApplyClass((prev) => !prev);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   setTimeout(() => {
     if (
       updateScore.success !== undefined &&
@@ -72,7 +84,7 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
       navigate("/");
       localStorage.removeItem("user");
     }
-  }, 9000);
+  }, 60000);
 
   return (
     <>
@@ -125,6 +137,15 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
               );
             })}
           </ol>
+        </div>
+        <div className='restart_button'>
+          <button
+            onClick={handleRestart}
+            className={`restart animate__animated ${
+              applyClass ? "animate__heartBeat" : ""
+            }`}>
+            start
+          </button>
         </div>
       </div>
     </>
