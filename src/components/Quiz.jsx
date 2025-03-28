@@ -14,14 +14,12 @@ import Scoreboard from "./Scoreboard";
 // data (question)
 
 export const quizLoader = async ({ request }) => {
-  // await requireAuth(request);
-  const pathname = new URL(request.url).pathname;
   const user = await requireAuth();
-  console.log(user);
+  console.log(user)
   if (!user) {
-    return redirect(`/?message=You must log in first!!&redirectTo=${pathname}`);
+    return defer({ allData: fetchData() });
   }
-  return defer({ allData: fetchData() });
+
 };
 
 const Quiz = () => {

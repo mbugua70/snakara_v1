@@ -11,12 +11,21 @@
 }
 
 .login_container {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background-image: url("../public/image/interactive_two.jpg");
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position: left top;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .video_container {
@@ -27,9 +36,12 @@
 }
 
 .details_whiskey{
-    position: absolute;
-    bottom: -260px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 }
+
 
 .details_whiskey span{
     display: block;
@@ -39,6 +51,14 @@
     font-size: 7rem;
     font-weight: 500;
     line-height: 140px;
+    text-align: start;
+}
+
+.details_whiskey :first-child{
+   background-color: var(--blue-main);
+   width: fit-content;
+   padding: 6px;
+   color: #fff;
 }
 
 .form {

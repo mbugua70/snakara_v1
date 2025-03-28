@@ -12,7 +12,7 @@ import LoginPage from "./registration";
 // loaders
 import { loginLoader as playerLoginLoader } from "./registration";
 // actions
-import { loginAction as playerLoginAction } from "./registration";
+// import { loginAction as playerLoginAction } from "./registration";
 import { quizLoader as questionLoader } from "./Quiz";
 import ErrorHandling from "./error";
 import Quiz from "./Quiz";
@@ -25,8 +25,8 @@ export const router = createBrowserRouter(
       <Route
         index
         element={<LoginPage />}
-        loader={playerLoginLoader}
-        action={playerLoginAction}
+        // loader={playerLoginLoader}
+        // action={playerLoginAction}
       />
       <Route path="/trivia" element={<Quiz />} loader={questionLoader} />
       <Route path="*" element={<PageNotFound />} />
