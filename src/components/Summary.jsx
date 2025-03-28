@@ -45,6 +45,8 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
   );
 
 
+  console.log(choiceCount, "count")
+
 
   const finalRecommendation =
     resultsMap[mostChosenCategory] || "No recommendation available.";

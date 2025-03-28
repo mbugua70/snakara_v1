@@ -23,7 +23,7 @@ const Answers = ({ onSelect, answer: userAnswer, selectedAnswer, answerState, CO
 
   return (
     <ul id='answers'>
-      {shuffleQuestions.current.map((answer, index) => {
+      {userAnswer.map((answer, index) => {
         const isAnswered = selectedAnswer === answer;
         let cssClass = "";
         let isCorrect;
@@ -104,7 +104,7 @@ const Answers = ({ onSelect, answer: userAnswer, selectedAnswer, answerState, CO
 
         const colorsItems = COLORS.map((items) => items.colors_answers);
         const colorsItem = colorsItems[0][index];
-        const originalIndex = userAnswer.findIndex((item) => item === shuffleQuestions.current[index]);
+        const originalIndex = userAnswer.findIndex((item) => item === userAnswer[index]);
         namingLetter = answerLetter[originalIndex];
         return (
           <li className='answer' key={answer}>
