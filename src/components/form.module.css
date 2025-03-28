@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-image: url("../public/image/interactive_two.jpg");
+  background-image: url("/image/background.jpg");
   background-repeat: no-repeat;
   background-origin: content-box;
   background-position: left top;
