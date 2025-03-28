@@ -4,6 +4,10 @@
   --tertiary-color: #656969;
   --secondary-two-color: #e2e3e6;
   --color-one: #5a4637;
+  --light--primary: #f8ce52;
+  --lighter-primary: #f8db81;
+  --brown-primary: #721f2e;
+  --blue-main: #44bfba;
 }
 
 .login_container {
@@ -53,7 +57,7 @@
 .button {
   box-sizing: border-box;
   width: 100%;
-  background-color: var(--tertiary-color);
+  background-color: var(--blue-main);
   color: #fff !important;
   text-transform: uppercase;
   margin-block: 3rem !important;
