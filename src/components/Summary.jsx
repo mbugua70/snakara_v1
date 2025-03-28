@@ -76,11 +76,7 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
   }, []);
 
   setTimeout(() => {
-    if (
-      updateScore.success !== undefined &&
-      updateScore.success === true &&
-      userAnswers.length === 5
-    ) {
+    if (userAnswers.length === 5) {
       navigate("/");
       localStorage.removeItem("user");
     }

@@ -2,7 +2,6 @@ const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
   "https://stark-garden-63439-342c9398264c.herokuapp.com";
 
-
 export async function loginUser(creds) {
   const res = await fetch(`${API_BASE_URL}/api/players/signup`, {
     method: "POST",
@@ -24,13 +23,10 @@ export async function loginUser(creds) {
 // getting all question
 
 export async function getQuestions() {
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user) {
-    return;
-  }
   const res = await fetch(`${API_BASE_URL}/api/questions`, {
     headers: {
-      Authorization: `Bearer ${user.token}`,
+      // Authorization: `Bearer ${user.token}`,
+      "Content-Type": "application/json",
     },
   });
 
@@ -48,13 +44,9 @@ export async function getQuestions() {
 // getting colors
 
 export async function getColors() {
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user) {
-    return;
-  }
   const res = await fetch(`${API_BASE_URL}/api/colors`, {
     headers: {
-      Authorization: `Bearer ${user.token}`,
+      "Content-Type": "application/json",
     },
   });
 
@@ -81,7 +73,7 @@ export async function updatePlayer(updateData) {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${user.token}`,
+        // Authorization: `Bearer ${user.token}`,
       },
       body: JSON.stringify(updateData),
     });
