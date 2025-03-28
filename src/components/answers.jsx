@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { Howl } from "howler";
 import wrongPic from "../assets/image/wrong.png";
-import correctPic from "../assets/image/correct.png";
+import correctPic from "../assets/image/touchscreen.png";
 import correctSoundFile from "../assets/audio/correct.wav";
 import wrongSoundFile from "../assets/audio/wrong.wav";
 

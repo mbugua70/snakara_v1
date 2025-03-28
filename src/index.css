@@ -12,6 +12,7 @@
   --light--primary: #f8ce52;
   --lighter-primary: #f8db81;
   --brown-primary: #721f2e;
+  --blue-main: #44bfba;
 }
 
 html {
@@ -207,7 +208,7 @@ div:where(.swal2-icon).swal2-error {
 .secondary_button {
   box-sizing: border-box;
   width: 100%;
-  background-color: var(--tertiary-color);
+  background-color: var(--blue-main);
   color: #fff !important;
   text-transform: uppercase;
   margin-block: 3rem !important;
@@ -265,7 +266,7 @@ div:where(.swal2-icon).swal2-error {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("../public/image/interactive-screen.jpg");
+  background-image: url("../public/image/interactive_two.jpg");
   background-repeat: no-repeat;
   background-origin: content-box;
   background-position: left top;
@@ -274,7 +275,7 @@ div:where(.swal2-icon).swal2-error {
 
 #question {
   height: calc(100vh - 10rem);
-  padding-top: 13.5rem;
+  padding-top: 16.5rem;
 }
 
 #question-overview {
@@ -363,11 +364,11 @@ div:where(.swal2-icon).swal2-error {
 
 .correctPic,
 .wrongPic {
-  width: 100%;
-  height: 100%;
+  width: 40%;
+  height: 40%;
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 42%;
+  left: 25%;
   z-index: -1;
 }
 
