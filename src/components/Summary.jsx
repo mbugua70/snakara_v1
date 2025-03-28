@@ -72,7 +72,7 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
       navigate("/");
       localStorage.removeItem("user");
     }
-  }, 6000);
+  }, 9000);
 
   return (
     <>
