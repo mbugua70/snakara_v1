@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import CompltedImage from "../assets/image/completedQuiz.png";
 import { updatePlayer } from "./api";
 
-import Cocktail from "/image/cocktail.webp";
+import Cocktail from "/image/terquila.jpg";
 
 const resultsMap = {
   A: "ROOTED IN TEQUILA",
@@ -52,7 +52,6 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
 
   function handleRestart() {
     navigate("/");
-    localStorage.removeItem("user");
   }
 
   useEffect(() => {
@@ -75,12 +74,7 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
     return () => clearInterval(interval);
   }, []);
 
-  setTimeout(() => {
-    if (userAnswers.length === 5) {
-      navigate("/");
-      localStorage.removeItem("user");
-    }
-  }, 60000);
+
 
   return (
     <>
@@ -96,7 +90,7 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
             <p className='animate__animated animate__slideInLeft'>Results </p>
           </div>
           <div className='row_two_details'>
-            <p>{finalRecommendation}</p>
+            {/* <p>{finalRecommendation}</p> */}
           </div>
         </div>
         <div className='row_two_summary'>
@@ -115,10 +109,10 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
         <div id='summary'>
           <div id='summary-stats'>
             <p>
-              <span className='text'>Summary</span>
+              <span className='text animate__animated animate__heartBeat'>{finalRecommendation}</span>
             </p>
           </div>
-          <ol>
+          {/* <ol>
             {userAnswers.map((answer, index) => {
               let cssClass = "user-answer";
               if (answer === null) {
@@ -132,7 +126,7 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
                 </li>
               );
             })}
-          </ol>
+          </ol> */}
         </div>
         <div className='restart_button'>
           <button
