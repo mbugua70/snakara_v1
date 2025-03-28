@@ -72,8 +72,7 @@
 }
 
 .button-style {
-  display: flex;
-  flex-direction: column;
+  width: 90%;
   padding-inline: 0px !important;
   margin-inline: 0px !important;
   box-sizing: border-box;

@@ -658,7 +658,7 @@ div:where(.swal2-icon).swal2-error {
 .question_main {
   background-color: #ffffff;
   box-shadow: -2px -1px 18px rgb(52, 196, 12, 0.35);
-  width: 90%;
+  width: 80%;
   margin-top: 2rem;
   margin: 2rem auto 4rem auto;
   padding-bottom: 1rem;
