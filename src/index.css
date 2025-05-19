@@ -22,9 +22,7 @@ html {
   overflow-y: hidden;
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
-
   color: #ebe7ef;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -270,8 +268,8 @@ div:where(.swal2-icon).swal2-error {
   background-image: url("/image/interactive_two.jpg");
   background-repeat: no-repeat;
   background-origin: content-box;
-  background-position: left top;
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
 }
 
 #question {
