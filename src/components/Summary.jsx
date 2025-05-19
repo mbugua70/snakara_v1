@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import CompltedImage from "../assets/image/completedQuiz.png";
 import { updatePlayer } from "./api";
 
-import Cocktail from "/image/terquila.jpg";
+import Cocktail from "/image/DonJulio.jpg";
 
 const resultsMap = {
   A: "ROOTED IN TEQUILA",
