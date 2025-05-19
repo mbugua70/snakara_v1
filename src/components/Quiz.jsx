@@ -10,16 +10,14 @@ import { fetchData } from "./api";
 import { requireAuth } from "./utilis";
 import Scoreboard from "./Scoreboard";
 
-
 // data (question)
 
 export const quizLoader = async ({ request }) => {
   const user = await requireAuth();
-  console.log(user)
+  console.log(user);
   if (!user) {
     return defer({ allData: fetchData() });
   }
-
 };
 
 const Quiz = () => {
@@ -63,7 +61,7 @@ const Quiz = () => {
 
   return (
     <>
-      <div id="quiz" className="">
+      <div id='quiz' className=''>
         <Suspense fallback={<Preloader />}>
           <Await resolve={questionPromise.allData}>
             {(QUESTIONSDATA) => {
@@ -72,12 +70,17 @@ const Quiz = () => {
 
               if (activeQuestionIndex === QUESTIONS.length) {
                 return (
-                  <Summary userAnswers={activeQuestion} QUESTIONS={QUESTIONS} />
+                  <div className="summary">
+                    <Summary
+                      userAnswers={activeQuestion}
+                      QUESTIONS={QUESTIONS}
+                    />
+                  </div>
                 );
               }
               return (
                 <>
-                  <div className="header_question">
+                  <div className='header_question'>
                     <Scoreboard
                       QUESTIONS={QUESTIONS}
                       userAnswers={activeQuestion}
@@ -94,8 +97,6 @@ const Quiz = () => {
                     onSelect={handleSelectedAnswer}
                     onSkipAnswer={handleSkipAnswer}
                   />
-
-
                 </>
               );
             }}
