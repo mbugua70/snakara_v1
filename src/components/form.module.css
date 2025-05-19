@@ -93,6 +93,26 @@
   border-radius: 24px;
 }
 
+@media ((min-width: 1080px) and (min-height: 1920px)){
+  .login_container {
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url("/image/background.jpg");
+    background-repeat: no-repeat;
+    /* background-origin: border-box;
+    background-position: left top; */
+    /* background-size: 100%; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 /* small interactive screen */
 @media ((max-width: 1080px) and (max-height: 1920px)) {
   .button {
