@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CompltedImage from "../assets/image/completedQuiz.png";
 import { updatePlayer } from "./api";
+import RepodosaImage from "../assets/image/repodosa.png";
+import BlancoImage from "../assets/image/blanco.png";
 
 import Cocktail from "/image/DonJulio.jpg";
 
@@ -76,7 +78,27 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
     return () => clearInterval(interval);
   }, []);
 
+  let imageContent;
 
+  if (finalRecommendation === "DON PALOMA") {
+    imageContent = (
+      <img
+        className="animate__animated animate__heartBeat"
+        src={RepodosaImage}
+        alt='repodosa image'
+        style={{ width: "200px", height: "400px" }}
+      />
+    );
+  } else {
+    imageContent = (
+      <img
+        className="animate__animated animate__heartBeat"
+        src={BlancoImage}
+        alt='repodosa image'
+        style={{ width: "200px", height: "400px" }}
+      />
+    );
+  }
 
   return (
     <>
@@ -111,9 +133,13 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
         <div id='summary'>
           <div id='summary-stats'>
             <p>
-              <span className='text animate__animated animate__heartBeat'>{finalRecommendation}</span>
+              <span className='text animate__animated animate__heartBeat'>
+                {finalRecommendation}
+              </span>
             </p>
+
           </div>
+           {imageContent}
           {/* <ol>
             {userAnswers.map((answer, index) => {
               let cssClass = "user-answer";
