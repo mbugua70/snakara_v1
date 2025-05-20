@@ -6,9 +6,9 @@ import { updatePlayer } from "./api";
 import Cocktail from "/image/DonJulio.jpg";
 
 const resultsMap = {
-  A: "ROOTED IN TEQUILA",
+  A: "DON PALOMA",
   B: "DON PALOMA",
-  C: "ORO VIEJO",
+  C: "DON MARGARITA",
   D: "DON MARGARITA",
 };
 
