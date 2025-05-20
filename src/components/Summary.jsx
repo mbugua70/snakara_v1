@@ -7,9 +7,9 @@ import Cocktail from "/image/DonJulio.jpg";
 
 const resultsMap = {
   A: "ROOTED IN TEQUILA",
-  B: "CASA PALOMA",
+  B: "DON PALOMA",
   C: "ORO VIEJO",
-  D: "CASA PALOMA",
+  D: "DON MARGARITA",
 };
 
 const Summary = ({ userAnswers, QUESTIONS }) => {
@@ -44,6 +44,8 @@ const Summary = ({ userAnswers, QUESTIONS }) => {
   const mostChosenCategory = Object.keys(choiceCount).reduce((a, b) =>
     choiceCount[a] > choiceCount[b] ? a : b
   );
+
+  console.log(mostChosenCategory, "most chosen category");
 
   console.log(choiceCount, "count");
 
