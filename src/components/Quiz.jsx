@@ -14,8 +14,7 @@ import Scoreboard from "./Scoreboard";
 
 export const quizLoader = async ({ request }) => {
   const user = await requireAuth();
-  console.log(user);
-  if (!user) {
+  if (user) {
     return defer({ allData: fetchData() });
   }
 };
@@ -67,7 +66,7 @@ const Quiz = () => {
             {(QUESTIONSDATA) => {
               const COLORS = QUESTIONSDATA.colors.colorsData;
               const QUESTIONS = QUESTIONSDATA.questions.allQuestions;
-
+              console.log(QUESTIONS, "questions")
               if (activeQuestionIndex === QUESTIONS.length) {
                 return (
                   <div className="summary">
