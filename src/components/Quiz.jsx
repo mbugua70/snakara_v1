@@ -17,6 +17,7 @@ export const quizLoader = async ({ request }) => {
   if (user) {
     return defer({ allData: fetchData() });
   }
+  return null;
 };
 
 const Quiz = () => {
@@ -68,7 +69,7 @@ const Quiz = () => {
               const QUESTIONS = QUESTIONSDATA.questions.allQuestions;
               if (activeQuestionIndex === QUESTIONS.length) {
                 return (
-                  <div className="summary">
+                  <div className='summary'>
                     <Summary
                       userAnswers={activeQuestion}
                       QUESTIONS={QUESTIONS}
