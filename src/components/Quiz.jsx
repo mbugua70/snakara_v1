@@ -66,7 +66,6 @@ const Quiz = () => {
             {(QUESTIONSDATA) => {
               const COLORS = QUESTIONSDATA.colors.colorsData;
               const QUESTIONS = QUESTIONSDATA.questions.allQuestions;
-              console.log(QUESTIONS, "questions")
               if (activeQuestionIndex === QUESTIONS.length) {
                 return (
                   <div className="summary">
