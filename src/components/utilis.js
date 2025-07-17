@@ -4,7 +4,7 @@ export async function requireAuth() {
   const isLoggedIn = storeTwo === null ? false : true;
 
   if (!isLoggedIn) {
-    return null;
+    return true;
   }
   return isLoggedIn;
 }
